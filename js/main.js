@@ -18,9 +18,12 @@ function palindrome() {
     for (let i = 0; i < processedStr.length / 2; i++ ) {
         if (processedStr[i] !== processedStr[processedStr.length - 1 - i]) {
             isPalindrome = false;
-        } else {
-            isPalindrome = true;
         }
+    }
+    if (isPalindrome) {
+        hint.innerHTML = `${textInput.value} is a palindrome💡`;
+    } else {
+        hint.innerHTML = `${textInput.value} is not a palindrome💡`;
     }
 }
 
