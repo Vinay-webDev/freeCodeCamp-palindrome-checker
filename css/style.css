@@ -37,8 +37,10 @@ body {
     margin-top: 15px;
     display: flex;
     justify-content: center;
+    text-align: center;
     background-color: violet;
-    font-size: 1.8em;
+    font-size: 1.5em;
+    overflow: hidden;
     width: 400px;
     height: 200px;
     border: none;
