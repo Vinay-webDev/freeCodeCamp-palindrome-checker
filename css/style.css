@@ -33,7 +33,7 @@ body {
     border: none;
     background-color: lightgreen;
 }
-#hint {
+#result {
     margin-top: 15px;
     display: flex;
     justify-content: center;

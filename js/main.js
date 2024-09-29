@@ -1,9 +1,9 @@
 ///palindrome checker***
-const textInput = document.getElementById("text-input");
+const input = document.getElementById("text-input");
 const check = document.getElementById("check");
-const hint = document.getElementById("hint");
+const result = document.getElementById("result");
 
-check.addEventListener("click", palindromeOne);
+//check.addEventListener("click", palindromeOne);
 
 /*
 function palindrome() {
@@ -43,22 +43,26 @@ function palindrome() {
 14. When the #text-input element contains the text My age is 0, 0 si ega ym. and the #check-btn element is clicked, the #result element should contain the text "My age is 0, 0 si ega ym. is a palindrome".
 */
 ///////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 function palindromeOne () {
     if (textInput.value == '') {
         alert("please input a value");
     }
     let filteredString;
 
-    if (textInput.value.includes("_")) {
-        filteredString = textInput.value.replace(/_/g, "").toLowerCase();
+    if (textInput.value.includes("_") && textInput.value.includes("-")) {
+        filteredString = textInput.value.replace(/[\W]/g, "").toLowerCase();
         console.log(filteredString);
-    } else if (textInput.value.length === 1) {
+    } else if (textInput.value.includes("_")) {
+        filteredString = textInput.value.replace(/_/g, "").toLowerCase();
+        //console.log(filteredString);
+    }
+    else if (textInput.value.length === 1) {
         return hint.innerText = `${textInput.value} is a palindrome`;
     }
     else {
         filteredString = textInput.value.replace(/[\W]/g, "").toLowerCase();
-        console.log(filteredString);
+        //console.log(filteredString);
     }
     
     for ( let i = 0; i < Math.floor(filteredString.length / 2); i++ ) {
@@ -69,18 +73,48 @@ function palindromeOne () {
         }
     } 
 }
+*/
+/////////////////////////////////////////////////////////
+/*
+15. When the #text-input element contains the text 1 eye for of 1 eye. and the #check-btn element is clicked, the #result element should contain the text "1 eye for of 1 eye. is not a palindrome".
+Failed:
+16. When the #text-input element contains the text 0_0 (: /-\ :) 0-0 and the #check-btn element is clicked, the #result element should contain the text "0_0 (: /-\ :) 0-0 is a palindrome".
+Failed:
+17. When the #text-input element contains the text five|\_/|four and the #check-btn element is clicked, the #result element should contain the text "five|\_/|four is not a palindrome".
+*/
+
+////////////////////////////////////////////////////////////
+
+
+check.addEventListener('click', palindromeThree);
+
+function palindromeTwo () {
+    let string = input.value.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (input.value === '') {
+        alert("Please input a value");
+    } else if (input.value.length === 1) {
+        result.innerText = `${input.value} is a palindrome`;
+    } else if (string === [...string].reverse().join("")) {
+        result.innerText = `${input.value} is a palindrome`;
+    } else {
+        result.innerText = `${input.value} is not a palindrome`;
+    }
+}
 
 
 
-
-
-
-
-
-
-
-
-
+function palindromeThree () {
+    let string = input.value.toLowerCase().replace(/[^a-z0-9]/g, '');
+    if (input.value === '') {
+        alert('Please input a value');
+    } else if (input.value.length === 1) {
+        result.innerText = `${input.value} is a palindrome`;
+    } else if (string === [...string].reverse().join("")) {
+        result.innerText = `${input.value} is a palindrome`;
+    } else {
+        result.innerText = `${input.value} is not a palindrome`;
+    }
+}
 
 
 
